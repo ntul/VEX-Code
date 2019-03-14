@@ -1,0 +1,333 @@
+wait1Msec(5000);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 210) {
+		liftUp(100);
+	}
+	stopLift();
+
+	while (SensorValue[RightFrontUltra] > 4 && SensorValue[RightRearUltra] > 4) {
+		strafeRightUltraRight(90);
+	}
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	while (abs(SensorValue[RightL]) < 260) {
+		liftUp(-100);
+	}
+	stopLift();
+	clearEncoders();
+
+	while (abs(SensorValue[RightRearD]) < 55) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+
+	wait1Msec(200);
+
+	SensorValue[RightClaw] = 1;
+	wait1Msec(200);
+
+	while (abs(SensorValue[RightL]) < 200) {
+		liftUp(100);
+	}
+	stopLift();
+
+	while (SensorValue[RightFrontUltra] < 50 && SensorValue[RightRearUltra] < 50) {
+		strafeLeftUltraRight(90);
+	}
+	stopDrive();
+
+	wait1Msec(500);
+
+			clearEncoders();
+	while (abs(SensorValue[RightRearD]) < 30) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 200) {
+		liftUp(-100);
+	}
+	stopLift();
+	wait1Msec(500);
+	clearEncoders();
+
+
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 230) {
+		liftUp(100);
+	}
+	stopLift();
+	clearEncoders();
+
+	while (abs(SensorValue[RightRearD]) < 60) {
+		reverse(50);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(500);
+
+	while (SensorValue[RightFrontUltra] > 4 && SensorValue[RightRearUltra] > 4) {
+		strafeRightUltraRight(90);
+	}
+	wait1Msec(100);
+	stopDrive();
+
+
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 250) {
+		liftUp(-100);
+	}
+	stopLift();
+	wait1Msec(200);
+
+		clearEncoders();
+	while (abs(SensorValue[RightRearD]) < 30) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 250) {
+		liftUp(100);
+	}
+	stopLift();
+	wait1Msec(500);
+
+	clearEncoders();
+
+	while (SensorValue[RightFrontUltra] < 50 && SensorValue[RightRearUltra] < 50) {
+		strafeLeftUltraRight(90);
+	}
+	stopDrive();
+	wait1Msec(100);
+
+	clearEncoders();
+
+	while(abs(SensorValue[RightRearD])<30){
+	forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	while (abs(SensorValue[RightRearD]) < 60) {
+		reverse(50);
+	}
+	stopDrive();
+
+	while (SensorValue[RightFrontUltra] > 4 && SensorValue[RightRearUltra] > 4) {
+		strafeRightUltraRight(90);
+	}
+	wait1Msec(100);
+	stopDrive();
+
+
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 250) {
+		liftUp(-100);
+	}
+	stopLift();
+	wait1Msec(200);
+
+		clearEncoders();
+	while (abs(SensorValue[RightRearD]) < 40) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 490) {
+		liftUp(100);
+	}
+	stopLift();
+	wait1Msec(500);
+
+	clearEncoders();
+
+	while (SensorValue[RightFrontUltra] < 50 && SensorValue[RightRearUltra] < 50) {
+		strafeLeftUltraRight(90);
+	}
+	stopDrive();
+	wait1Msec(100);
+
+	clearEncoders();
+
+	while(abs(SensorValue[RightRearD])<40){
+	forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+	clearEncoders();
+
+	while (abs(SensorValue[RightRearD]) < 70) {
+		reverse(50);
+	}
+	stopDrive();
+
+	wait1Msec(500);
+
+		while (SensorValue[RightFrontUltra] > 4 && SensorValue[RightRearUltra] > 4) {
+		strafeRightUltraRight(90);
+	}
+	wait1Msec(100);
+	stopDrive();
+
+
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 500) {
+		liftUp(-100);
+	}
+	stopLift();
+	wait1Msec(200);
+
+		clearEncoders();
+	while (abs(SensorValue[RightRearD]) < 50) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 750) {
+		liftUp(100);
+	}
+	stopLift();
+	wait1Msec(500);
+
+	clearEncoders();
+
+	while (SensorValue[RightFrontUltra] < 50 && SensorValue[RightRearUltra] < 50) {
+		strafeLeftUltraRight(90);
+	}
+	stopDrive();
+	wait1Msec(100);
+
+	clearEncoders();
+
+	while(abs(SensorValue[RightRearD])<40){
+	forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+	clearEncoders();
+
+	while (abs(SensorValue[RightRearD]) < 60) {
+		reverse(50);
+	}
+	stopDrive();
+
+	wait1Msec(500);
+
+		while (SensorValue[RightFrontUltra] > 4 && SensorValue[RightRearUltra] > 4) {
+		strafeRightUltraRight(90);
+	}
+	wait1Msec(100);
+	stopDrive();
+
+
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 750) {
+		liftUp(-100);
+	}
+	stopLift();
+	wait1Msec(200);
+
+		clearEncoders();
+	while (abs(SensorValue[RightRearD]) < 50) {
+		forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < 1000) {
+		liftUp(100);
+	}
+	stopLift();
+	wait1Msec(500);
+
+	clearEncoders();
+
+	while (SensorValue[RightFrontUltra] < 50 && SensorValue[RightRearUltra] < 50) {
+		strafeLeftUltraRight(90);
+	}
+	stopDrive();
+	wait1Msec(100);
+
+	clearEncoders();
+
+	while(abs(SensorValue[RightRearD])<40){
+	forward(50);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+	clearEncoders();
+
+	while (abs(SensorValue[RightRearD]) < 60) {
+		reverse(50);
+	}
+	stopDrive();

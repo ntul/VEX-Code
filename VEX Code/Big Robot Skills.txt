@@ -1,0 +1,275 @@
+//Autonomous section
+
+
+
+void autonomousRed() {
+  clearEncoders();
+
+  liftUp(127);
+  wait1Msec(500);
+  while (abs(SensorValue[FrontUltra]) > 6) {
+
+    if (SensorValue[RightLiftPot] > 1500)
+      stopLift();
+    forw(60);
+  }
+  stopDrive();
+  reverse(20);
+  wait1Msec(100);
+  stopDrive();
+
+  clearTimer(T1);
+  while (abs(SensorValue[RightLiftPot]) > 1100) {
+    liftDown(100);
+    if (time1[T1] > 1000) {
+      break;
+    }
+  }
+  stopLift();
+  clearEncoders();
+  wait1Msec(500);
+
+  while (abs(SensorValue[RightLiftPot]) < 1400) {
+    liftUp(100);
+  }
+  liftUp(20);
+
+
+  GyroTurnLeft(35, 70);
+
+  wait1Msec(200);
+  clearEncoders();
+
+  while (abs(SensorValue[RightBE]) < 800) {
+    forw(60);
+  }
+  reverse(20);
+  wait1Msec(100);
+  stopDrive();
+  wait1Msec(200);
+
+
+  SensorValue[in1] = 0;
+  GyroTurnLeft(55, 70);
+
+  while (SensorValue[FrontUltra] > 5) {
+    forw(50);
+  }
+  reverse(20);
+  wait1Msec(100);
+  stopDrive();
+
+  while (abs(SensorValue[RightLiftPot]) > 1050) {
+    liftDown(100);
+  }
+  stopLift();
+  clearEncoders();
+  wait1Msec(500);
+
+  while (abs(SensorValue[RightLiftPot]) < 1200) {
+    liftUp(100);
+    wait1Msec(500);
+  }
+  liftUp(20);
+  clearEncoders();
+
+  SensorValue[in1] = 0;
+  GyroTurnLeft(90, 70);
+
+
+  while (SensorValue[RightLiftPot] < 1400) {
+    liftUp(100);
+  }
+  liftUp(30);
+
+
+
+
+  clearTimer(T1);
+  while (SensorValue[FrontUltra] > 6 || time1[T1] < 1000) {
+    forw(60);
+  }
+  reverse(20);
+  wait1Msec(100);
+
+  stopDrive();
+
+  wait1Msec(500);
+
+  while (SensorValue[RightLiftPot] > 1050) {
+    liftDown(100);
+  }
+  stopLift();
+
+  wait1Msec(500);
+
+  while (SensorValue[RightLiftPot] < 1500) {
+    liftUp(100);
+  }
+  liftUp(30);
+  wait1Msec(500);
+
+  SensorValue[in1] = 0;
+
+  GyroTurnLeft(90, 80);
+clearTimer(T1);
+  while (SensorValue[RightFrontUltra] > 18 || SensorValue[LeftFrontUltra] > 18||time1[T1]<500) {
+    forw(60);
+  }
+  reverse(20);
+  wait1Msec(100);
+  stopDrive();
+  wait1Msec(200);
+
+  SensorValue[in1] = 0;
+
+  GyroTurnRight(90, 70);
+
+  while (SensorValue[RightLiftPot] < 2100) {
+    liftUp(127);
+  }
+  liftUp(30);
+
+  wait1Msec(1200);
+
+  clearEncoders();
+  while (abs(SensorValue[RightBE]) < 500) {
+    forw(70);
+  }
+  reverse(20);
+  wait1Msec(100);
+  stopDrive();
+
+  stopLift();
+
+  while (SensorValue[RightLiftPot] > 2000) {
+  }
+  liftUp(20);
+
+  SensorValue[pneumatics] = 0;
+  wait1Msec(1000);
+
+  while (SensorValue[RightLiftPot] < 2200) {
+    liftUp(127);
+  }
+  stopLift();
+
+  wait1Msec(1000);
+
+  clearEncoders();
+  while (abs(SensorValue[RightBE]) < 1030) {
+    reverse(70);
+  }
+  stopDrive();
+  stopLift();
+
+  wait1Msec(500);
+
+  SensorValue[in1] = 0;
+  SensorValue[pneumatics]=1;
+
+  GyroTurnRight(90, 70);
+
+
+  wait1Msec(500);
+
+  clearTimer(T1);
+  while (SensorValue[FrontUltra] > 5 || time1[T1] < 1000) {
+    forw(60);
+  }
+  reverse(20);
+  wait1Msec(100);
+
+   clearTimer(T1);
+  while (abs(SensorValue[RightLiftPot]) > 1050) {
+    liftDown(100);
+    if (time1[T1] > 3000) {
+      break;
+    }
+  }
+  stopLift();
+
+  wait1Msec(200);
+
+  while (abs(SensorValue[RightLiftPot]) < 1900) {
+    liftUp(100);
+  }
+  liftUp(20);
+
+  wait1Msec(200);
+
+
+  clearTimer(T1);
+  while (SensorValue[FrontUltra] > 5 && time1[T1] < 2000) {
+    forw(60);
+  }
+  reverse(20);
+  wait1Msec(100);
+
+   clearTimer(T1);
+  while (abs(SensorValue[RightLiftPot]) > 1500) {
+    liftDown(100);
+    if (time1[T1] > 1000) {
+      break;
+    }
+  }
+  stopLift();
+
+  wait1Msec(200);
+
+   while (abs(SensorValue[RightLiftPot]) < 1900) {
+    liftUp(127);
+  }
+  liftUp(20);
+
+  wait1Msec(200);
+
+  clearEncoders();
+
+  while(abs(SensorValue[RightBE])<700){
+  	reverse(60);
+  }
+
+  stopDrive();
+
+  wait1Msec(500);
+  SensorValue[in1]=0;
+  wait1Msec(500);
+
+  GyroTurnLeft(90,70);
+
+  clearEncoders();
+  liftUp(127);
+  while (abs(SensorValue[RightBE]) < 1000) {
+  	forw(70);
+  	if (abs(SensorValue[RightLiftPot]) > 3000) {
+    liftUp(20);
+  }
+ 
+    
+  }
+  stopDrive();
+  stopLift();
+
+  wait1Msec(1000);
+  
+   SensorValue[pneumatics] = 0;
+  wait1Msec(1000);
+  
+  clearEncoders();
+  
+  while(abs(SensorValue[RightLiftPot])<3000){
+  	liftUp(127);
+}
+
+liftUp(20);
+
+clearEncoders();
+
+wait1Msec(500);
+
+while(abs(SensorValue[RightBE])<200){
+	reverse(70);
+}
+stopLift();
+}

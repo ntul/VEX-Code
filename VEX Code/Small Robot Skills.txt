@@ -1,0 +1,478 @@
+//Autonomous Section
+
+
+
+void autoRed(){
+
+	int First = 200, Second = 240, Third = 445, Fourth = 770, Fifth = 1000, Sixth=1300, WallUltra=4, ScoreUltra=54, Lift=100, StrafeScore=90, StrafePick=127, dForwarda=60, dReverse=120;
+
+
+
+
+
+	//First Skyrise Section
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < First ) {
+		liftUp(Lift);
+	}
+	stopLift();
+
+	while (abs(SensorValue[RightFrontD]) < 70) {
+		reverse(dReverse);
+	}
+	stopDrive();
+
+	wait1Msec(100);
+	clearEncoders();
+
+	liftDown(Lift);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+
+		if (abs(SensorValue[RightL]) > First+30)
+			stopLift();
+	}
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	clearTimer(T1);
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+
+	wait1Msec(200);
+
+	SensorValue[RightClaw] = 1;
+	wait1Msec(200);
+
+	while (abs(SensorValue[RightL]) < First-15) {
+		liftUp(Lift);
+	}
+	stopLift();
+
+	while (SensorValue[RightFrontUltra] < ScoreUltra-1 && SensorValue[RightRearUltra] < ScoreUltra-1) {
+		strafeLeftUltraRight(StrafeScore);
+	}
+
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+	wait1Msec(100);
+
+/*	clearEncoders();
+	while (abs(SensorValue[RightFrontD]) < 25) {
+		dForward(dForwarda);
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();*/
+	clearEncoders();
+
+	clearEncoders();
+	while (abs(SensorValue[RightL]) < First-15 ) {
+		liftDown(Lift);
+	}
+	stopLift();
+
+	wait1Msec(500);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	//Second Skyrise Section
+
+
+	while (abs(SensorValue[RightFrontD]) < 250) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(100);
+
+
+	clearTimer(T1);
+
+	liftDown(Lift);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+		if(time1[T1]>1000){
+			stopLift();}
+	}
+	wait1Msec(100);
+	stopDrive();
+
+	clearTimer(T1);
+	clearEncoders();
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+
+	wait1Msec(200);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(200);
+
+	clearEncoders();
+
+	while (abs(SensorValue[RightL]) < Second) {
+		liftUp(100);
+	}
+	stopLift();
+
+	while (SensorValue[RightFrontUltra] < ScoreUltra && SensorValue[RightRearUltra] < ScoreUltra) {
+		strafeLeftUltraRight(StrafeScore);
+	}
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+
+	clearEncoders();
+/*
+	while(abs(SensorValue[RightFrontD])<45){
+		dForward(dForwarda);
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();*/
+	clearEncoders();
+
+	wait1Msec(300);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(300);
+
+
+	// Third Skyrise Section
+
+
+
+	while (abs(SensorValue[RightFrontD]) < 250) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(100);
+
+
+	liftDown(Lift);
+	wait1Msec(200);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+
+		if (abs(SensorValue[RightL]) > Second)
+			stopLift();
+	}
+	wait1Msec(100);
+	stopDrive();
+
+	clearTimer(T1);
+	clearEncoders();
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(300);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(300);
+
+	clearEncoders();
+	liftUp(127);
+
+	wait1Msec(500);
+	while (SensorValue[RightFrontUltra] < ScoreUltra && SensorValue[RightRearUltra] < ScoreUltra) {
+		strafeLeftUltraRight(StrafeScore);
+		if(abs(SensorValue[RightL])>Third){
+			stopLift();}
+	}
+	stopLift();
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+
+
+	clearEncoders();
+/*
+	while(abs(SensorValue[RightFrontD])<45){
+		dForward(dForwarda);
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+*/
+	wait1Msec(1000);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+
+	// Fourth Skyrise Section
+
+
+
+	while (abs(SensorValue[RightFrontD]) < 250) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(300);
+	
+
+
+	liftDown(Lift);
+	wait1Msec(200);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+
+		if (abs(SensorValue[RightL]) > Third+50)
+			stopLift();
+	}
+	stopLift();
+	wait1Msec(100);
+	stopDrive();
+
+	clearTimer(T1);
+	clearEncoders();
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(300);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(300);
+
+	clearEncoders();
+	liftUp(127);
+
+	wait1Msec(500);
+	while (SensorValue[RightFrontUltra] < ScoreUltra-5 && SensorValue[RightRearUltra] < ScoreUltra-5) {
+		strafeLeftUltraRight(StrafeScore);
+		if(abs(SensorValue[RightL])>Fourth){
+			stopLift();}
+	}
+	stopLift();
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+	wait1Msec(100);
+
+	clearEncoders();
+/*
+	while(abs(SensorValue[RightFrontD])<45){
+		dForward(dForwarda);
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+*/
+
+	while(abs(SensorValue[RightL])<50){
+		liftDown(Lift);
+	}
+	stopLift();
+	wait1Msec(1000);
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	while(abs(SensorValue[RightL])<50){
+		liftUp(Lift);
+	}
+	stopLift();
+
+	// Fifth Skyrise Section
+
+
+	clearEncoders();
+
+	while (abs(SensorValue[RightFrontD]) < 350) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(100);
+
+
+	liftDown(Lift);
+	wait1Msec(200);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+
+		if (abs(SensorValue[RightL]) > Fourth+50)
+			stopLift();
+	}
+	wait1Msec(100);
+	stopDrive();
+
+	clearTimer(T1);
+	clearEncoders();
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(200);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(300);
+
+	clearEncoders();
+	liftUp(127);
+
+	wait1Msec(500);
+	while (SensorValue[RightFrontUltra] < ScoreUltra-5 && SensorValue[RightRearUltra] < ScoreUltra-5) {
+		strafeLeftUltraRight(StrafeScore);
+		if(abs(SensorValue[RightL])>Fifth){
+			stopLift();}
+	}
+
+	stopLift();
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+	wait1Msec(500);
+
+	clearEncoders();
+
+
+	while(abs(SensorValue[RightL])<70){
+		liftDown(Lift);
+	}
+	stopLift();
+
+	wait1Msec(2000);
+
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	clearEncoders();
+
+	
+	//Sixth Skyrise Section
+	
+	
+	clearEncoders();
+
+	while (abs(SensorValue[RightFrontD]) < 350) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(100);
+
+
+	liftDown(Lift);
+	wait1Msec(200);
+	while (SensorValue[RightFrontUltra] > WallUltra || SensorValue[RightRearUltra] > WallUltra) {
+		strafeRight(StrafePick);
+
+		if (abs(SensorValue[RightL]) > Fourth+50)
+			stopLift();
+	}
+	wait1Msec(100);
+	stopDrive();
+
+	clearTimer(T1);
+	clearEncoders();
+	while (SensorValue[Limit]==0) {
+		dForward(dForwarda);
+		if(time1[T1]>3000)
+			terminate();
+	}
+	reverse(20);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+
+	wait1Msec(300);
+
+	SensorValue[RightClaw] = 1;
+
+	wait1Msec(500);
+
+	clearEncoders();
+	liftUp(127);
+
+	wait1Msec(500);
+	while (SensorValue[RightFrontUltra] < ScoreUltra-5 && SensorValue[RightRearUltra] < ScoreUltra-5) {
+		strafeLeftUltraRight(StrafeScore);
+		if(abs(SensorValue[RightL])>Fifth){
+			stopLift();}
+	}
+
+	stopLift();
+	strafeRight(30);
+	wait1Msec(100);
+	stopDrive();
+	wait1Msec(500);
+
+	clearEncoders();
+
+
+	while(abs(SensorValue[RightL])<100){
+		liftDown(Lift);
+	}
+	stopLift();
+
+	wait1Msec(2000);
+
+
+	SensorValue[RightClaw] = 0;
+
+	wait1Msec(500);
+
+	clearEncoders();
+
+	while (abs(SensorValue[RightFrontD]) < 350) {
+		reverse(dReverse);
+	}
+	stopDrive();
+	clearEncoders();
+	wait1Msec(200);
+
+}

@@ -1,0 +1,362 @@
+
+	while(abs(SensorValue[RightLiftPot])<1600){
+		liftUp(100);
+	}
+	stopLift();
+	clearEncoders();
+
+	wait1Msec(500);
+	while(abs(SensorValue[FrontUltra])>7){
+		forw(60);
+	}
+	reverse(10);
+	wait1Msec(100);
+	stopDrive();
+	clearEncoders();
+	wait1Msec(500);
+	clearTimer(T1);
+	while(abs(SensorValue[RightLiftPot])>=1080){
+		liftDown(100);
+		if(time1[T1]>1500){
+			break;}
+	}
+	stopLift();
+	clearEncoders();
+	wait1Msec(500);
+	
+	while(abs(SensorValue[RightLiftPot])<1300){
+		liftUp(100);
+	}
+	stopLift();
+	clearEncoders();
+/*	while(abs(SensorValue[Lift])<410){
+		liftUp(50);
+	}
+	stopLift();
+	wait1Msec(500);
+	clearEncoders();
+GyroTurnLeftTest2(92,80);
+clearEncoders();
+wait1Msec(500);
+
+while(abs(SensorValue[FrontUltra])>7){
+	forward(50);
+}
+stopDrive();
+wait1Msec(500);
+clearEncoders();
+
+if(SensorValue[RightFrontUltra]<3){
+      motor[leftFrontDrive]  = -60;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = -60;
+  		motor[leftRearDrive]  = -60;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+     wait1Msec(1000);
+
+      motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = -60;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = -60;
+      motor[rightRearDrive] =-60;
+      wait1Msec(1000);
+   stopDrive();
+   wait1Msec(500);
+
+   while(abs(SensorValue[FrontUltra])>6){
+	forward(50);
+}
+stopDrive();
+wait1Msec(500);
+clearEncoders();
+
+}
+clearTimer(T1);
+while(abs(SensorValue[Lift])<420){
+	liftDown(70);
+	if(time1[T1]>1500){
+			break;}
+}
+stopLift();
+
+wait1Msec(500);
+clearEncoders();
+while(abs(SensorValue[Lift])<120){
+	liftUp(70);
+}
+stopLift();
+
+
+wait1Msec(500);
+
+clearEncoders();
+while(abs(SensorValue[LeftDrive])<150){
+	reverse(50);
+}
+stopDrive();
+
+wait1Msec(500);
+clearEncoders();
+GyroTurnLeft(282,60);
+
+wait1Msec(500);
+clearEncoders();
+
+while(abs(SensorValue[Lift])<880){
+liftUp(100);
+}
+liftUp(20);
+clearEncoders();
+
+/*if(SensorValue[LeftRearUltra]>1){
+	    motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = 50;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = 50;
+      motor[rightRearDrive] =50;
+      wait1Msec(1000);
+      stopDrive();
+
+      motor[leftFrontDrive]  = 50;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = 50;
+  		motor[leftRearDrive]  = 50;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+      wait1Msec(1000);
+      stopDrive();
+    }
+else{
+	forward(50);
+	wait1Msec(1000);
+}
+*/
+/*
+while(abs(SensorValue[RightFrontUltra])>5){
+	forward(70);
+}
+while(SensorValue[LeftFrontUltra]>5){
+	forward(50);
+}
+
+
+stopDrive();
+wait1Msec(1000);
+SensorValue[pneumatics]=0;
+wait1Msec(1000);
+stopLift();
+clearEncoders();
+
+while(abs(SensorValue[LeftDrive])<200){
+	reverse(70);
+}
+stopDrive();
+wait1Msec(500);
+
+SensorValue[in1]=0;
+GyroTurnLeft(185,60);
+wait1Msec(500);
+clearEncoders();
+SensorValue[pneumatics]=1
+while(abs(SensorValue[LeftDrive])<300){
+	forward(70);
+}
+
+while(abs(SensorValue[FrontUltra])>6){
+	forward(60);
+}
+stopDrive();
+wait1Msec(500);
+if(SensorValue[RightFrontUltra]<3){
+      motor[leftFrontDrive]  = -70;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = -70;
+  		motor[leftRearDrive]  = -70;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+     wait1Msec(1100);
+
+      motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = -70;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = -70;
+      motor[rightRearDrive] =-70;
+      wait1Msec(800);
+   stopDrive();
+
+   wait1Msec(500);
+   while(abs(SensorValue[FrontUltra])>6){
+	forward(50);
+}
+stopDrive();
+clearEncoders();
+wait1Msec(500);
+}
+if(SensorValue[RightFrontUltra]<3){
+      motor[leftFrontDrive]  = -70;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = -70;
+  		motor[leftRearDrive]  = -70;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+     wait1Msec(1000);
+
+      motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = -70;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = -70;
+      motor[rightRearDrive] =-70;
+      wait1Msec(700);
+   stopDrive();
+   wait1Msec(500);
+   while(abs(SensorValue[FrontUltra])>6){
+	forward(50);
+}
+stopDrive();
+wait1Msec(500);
+clearEncoders();
+}
+
+clearTimer(T1);
+while(abs(SensorValue[Lift])<1000){
+	liftDown(100);
+	if(time1[T1]>2000)
+	{
+		reverse(70);
+		wait1Msec(200);
+		stopDrive();
+}
+}
+stopLift();
+
+
+wait1Msec(500);
+clearEncoders();
+while(abs(SensorValue[Lift])<120){
+	liftUp(70);
+}
+stopLift();
+
+
+wait1Msec(500);
+
+clearEncoders();
+while(abs(SensorValue[LeftDrive])<150){
+	reverse(50);
+}
+stopDrive();
+
+wait1Msec(500);
+clearEncoders();
+SensorValue(in1)=0;
+GyroTurnLeft(182,60);
+
+wait1Msec(500);
+clearEncoders();
+
+while(abs(SensorValue[Lift])<880){
+liftUp(100);
+}
+liftUp(20);
+clearEncoders();
+
+/*if(SensorValue[LeftRearUltra]>1){
+	    motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = 50;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = 50;
+      motor[rightRearDrive] =50;
+      wait1Msec(1000);
+      stopDrive();
+
+      motor[leftFrontDrive]  = 50;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = 50;
+  		motor[leftRearDrive]  = 50;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+      wait1Msec(1000);
+      stopDrive();
+    }
+else{
+	forward(50);
+	wait1Msec(1000);
+}
+*/
+/*
+while(abs(SensorValue[RightFrontUltra])>5){
+	forward(70);
+}
+
+
+stopDrive()
+wait1Msec(1000);
+SensorValue[pneumatics]=0;
+wait1Msec(1000);
+stopLift();
+clearEncoders();
+
+while(abs(SensorValue[LeftDrive])<200){
+	reverse(70);
+}
+stopDrive();
+wait1Msec(500);
+
+SensorValue[in1]=0;
+GyroTurnLeft(185,60);
+wait1Msec(500);
+clearEncoders();
+SensorValue[pneumatics]=1
+
+	forward(70);
+wait1Msec(1500);
+stopDrive();
+/*
+while(abs(SensorValue[FrontUltra])>6){
+	forward(70);
+}
+stopDrive();
+wait1Msec(500);
+if(SensorValue[RightFrontUltra]<3){
+      motor[leftFrontDrive]  = -60;
+  	  motor[rightFrontDrive]  = 0;
+  		motor[leftMidDrive]  = -60;
+  		motor[leftRearDrive]  = -60;
+      motor[rightMidDrive] = 0;
+      motor[rightRearDrive] =0;
+     wait1Msec(1000);
+
+      motor[leftFrontDrive]  = 0;
+  	  motor[rightFrontDrive]  = -60;
+  		motor[leftMidDrive]  = 0;
+  		motor[leftRearDrive]  = 0;
+      motor[rightMidDrive] = -60;
+      motor[rightRearDrive] =-60;
+      wait1Msec(850);
+   stopDrive();
+   wait1Msec(500);
+   while(abs(SensorValue[FrontUltra])>5){
+	forward(50);
+}
+stopDrive();
+wait1Msec(500);
+clearEncoders();
+}
+clearTimer(T1);
+while(abs(SensorValue[Lift])<1000){
+	liftDown(100);
+	if(time1[T1]>2000)
+	{
+		reverse(50);
+		wait1Msec(200);
+		stopDrive();
+}
+}
+stopLift();*/
+}
